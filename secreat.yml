@@ -1,0 +1,1 @@
+kubectl create secret generic pubsub-key --from-file=key.json=PATH-TO-KEY-FILE.json
