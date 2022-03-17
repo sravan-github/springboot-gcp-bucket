@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  labels: 
+    app: simple-app
+  name: simple-app-deployment
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-app
+  template: 
+    metadata: 
+      labels: 
+        app: simple-app
+    spec: 
+      spec:
+      volumes:
+      - name: google-cloud-key
+        secret:
+          secretName: pubsub-key
+      containers: 
+        - name: simple-app
+          image: sravangcpdocker/spring-hello:1.0
+          imagePullPolicy: Always
+          ports: 
+            - containerPort: 8080
+          volumeMounts:
+          - name: google-cloud-key
+            mountPath: /var/secrets/google
+          env:
+          - name: GOOGLE_APPLICATION_CREDENTIALS
+            value: /var/secrets/google/key.json
