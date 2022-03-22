@@ -1,3 +1,5 @@
+https://github.com/spring-attic/spring-cloud-gcp/tree/main/spring-cloud-gcp-samples/spring-cloud-gcp-storage-resource-sample
+
 = Spring Cloud GCP Storage Starter Example
 
 This code sample demonstrates how to read and write files with the Spring Resource abstraction for
